@@ -1,5 +1,9 @@
 import requests
 
+css = "_errors/main.css"
+style = ""
+with open(css) as f: 
+        style = f.read()
 r = requests.get('http://webconcepts.info/concepts/http-status-code.json')
 json = r.json()
 
@@ -14,6 +18,7 @@ for i in json["values"]:
 
         if error_code == 418 or error_code < 400 or error_code > 599:
             continue
+        new_content = new_content.replace("$MAIN_CSS", style)	
         new_content = new_content.replace("$ERROR_CODE", i["value"])
         new_content = new_content.replace("$ERROR_NAME", i["description"])
         new_content = new_content.replace("$ERROR_DESC", i["details"][0]["description"])

@@ -30,4 +30,4 @@ with open("snippets/error_pages_content.conf", "w") as epc:
         v = int(i["value"])
         if v < 400 or v > 599:
             continue
-        print("error_page %d /%d.html;" % (v,v), file=epc)
+        print("error_page %d /error/%d.html;" % (v,v), file=epc)

@@ -14,10 +14,9 @@ for i in json["values"]:
         new_content = content
         error_code = int(i["value"])
 
-        print("Error Code: %d" % (error_code))
-
         if error_code == 418 or error_code < 400 or error_code > 599:
             continue
+        print("Error Code: %d" % (error_code))
         new_content = new_content.replace("$MAIN_CSS", style)	
         new_content = new_content.replace("$ERROR_CODE", i["value"])
         new_content = new_content.replace("$ERROR_NAME", i["description"])

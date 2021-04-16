@@ -1,19 +1,57 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);html{background-color:#fefefe}body{font-family:Open Sans,Arial;color:#454545;font-size:16px;margin:2em auto;max-width:800px;padding:1em;line-height:1.4;text-align:justify}@media screen and (max-width:500px){body{text-align:left}}
-
-body{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
+@import url(https://fonts.googleapis.com/css?family=Montserrat:900|Open+Sans);
+html{background-color:#fefefe}body{font-family:Open Sans,Arial;color:black;margin:2em auto;font-size:16px;max-width:800px;padding:1em;line-height:1.4;text-align:justify}@media screen and (max-width:500px){body{text-align:left}}
 html{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
 }
-
+body {
+  overflow: hidden;
+}
 .error-middle{
-	display: block;
-	vertical-align: middle;
+	text-align: center;
+}
+h1 {
+    font-family: Montserrat,sans-serif;
+    font-size: 16rem;
+    font-weight: 900;
+    margin: -0.33em 0 -0.26em -40px;
+    text-transform: uppercase;
+    letter-spacing: -40px;
+}
+h1 > span {
+	text-shadow: -8px 0 0 #fff;
+}
+h3 {
+   margin: 0;
+   font-size: 1.3rem;
+   text-transform: uppercase;
+}
+@media only screen and (max-width:767px){
+  h1 {
+    font-size: 15rem;
+  }
+  h3 {
+	font-size: 1.15rem;
+  }
+}
+@media only screen and (max-width:480px){
+  h1 {
+    font-size: 12.5rem;
+  }
+  h3 {
+	font-size: 1rem;
+  }
+  p {
+	font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width:340px){
+  h1 {
+    font-size: 10rem;
+  }
+  h3 {
+	font-size: 0.8rem;
+  }
 }

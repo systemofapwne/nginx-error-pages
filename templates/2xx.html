@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Status $ERROR_CODE</title>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Status $ERROR_CODE - $ERROR_NAME</title>
 	<style>
 		$MAIN_CSS
-		html{
-			background-color: #1E88E5;
-		}
-		
-		body{
-			color: #fefefe;
+		h1 {
+			color: #1E88E5;
 		}
 	</style>
 </head>
-
 <body>
 <div class="error-middle">
-	<h1>Status $ERROR_CODE - $ERROR_NAME</h1>
+    <h3>Status $ERROR_NAME</h3>
+	<h1>$ERROR_SPAN</h1>
 	<p>$ERROR_DESC</p>
 </div>
 </body>

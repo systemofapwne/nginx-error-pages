@@ -19,6 +19,10 @@ for i in json["values"]:
         print("Error Code: %d" % (error_code))
         new_content = new_content.replace("$MAIN_CSS", style)	
         new_content = new_content.replace("$ERROR_CODE", i["value"])
+        span_error = "";
+        for c in i["value"]:
+            span_error += "<span>" + c + "</span>"
+        new_content = new_content.replace("$ERROR_SPAN", span_error)
         new_content = new_content.replace("$ERROR_NAME", i["description"])
         new_content = new_content.replace("$ERROR_DESC", i["details"][0]["description"])
         with open(i["value"] + ".html", "w") as output_file:

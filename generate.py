@@ -30,3 +30,6 @@ with open("snippets/error_pages_content.conf", "w") as epc:
         if v < 400 or v > 599:
             continue
         print("error_page %d /error/%d.html;" % (v,v), file=epc)
+    print("error_page 495 http://$host;", file=epc)
+    print("error_page 496 http://$host;", file=epc)
+    print("error_page 497 https://$host$request_uri;", file=epc)

@@ -1,5 +1,5 @@
 import requests
-
+import minify_html
 css = "_errors/main.css"
 
 custom_text = {401: ["Authorization Required", "Your access to this resource is denied<br>We could not verify that you "
@@ -50,7 +50,11 @@ for i in json["values"]:
         new_content = new_content.replace("$ERROR_NAME", name)
         new_content = new_content.replace("$ERROR_DESC", description)
         with open(i["value"] + ".html", "w") as output_file:
-            output_file.write(new_content)
+            try:
+                minified = minify_html.minify(new_content, minify_js=False, minify_css=True)
+            except SyntaxError as e:
+                print(e)
+            output_file.write(minified)
 
 with open("snippets/error_pages_content.conf", "w") as epc:
     for i in json["values"]:

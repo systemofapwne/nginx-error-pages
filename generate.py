@@ -2,6 +2,25 @@ import requests
 
 css = "_errors/main.css"
 style = ""
+
+custom_text = {401: ["Authorization Required", "Your access to this resource is denied<br>We could not verify that you "
+                                               "are authorized to access this resource."],
+               403: ["Access Denied", "Sorry, but you don't have permission to access this resource."],
+               404: ["Page Not Found", "Sorry, but the page you requested was not found."],
+               500: ["Internal Server Error",
+                     "Sorry, our site is currentlyis experiencing technical difficulties.<br>Our engineers are "
+                     "working to resolve this issue<br>Please try accessing this resource again in a few minutes."],
+               502: ["Bad Gateway",
+                     "Sorry, our site is currentlyis experiencing technical difficulties.<br>Our engineers are "
+                     "working to resolve this issue<br>Please try accessing this resource again in a few minutes."],
+               503: ["Service Unavailable",
+                     "Sorry, our site is temporarily unavailable.<br>The server is temporarily unable to service your "
+                     "request due to maintenance downtime or capacity problem.<br>Please try again in a few minutes."],
+               504: ["Gateway Timeout",
+                     "Sorry, our site is currently experiencing errors.<br>Our engineers are working to resolve this "
+                     "issue.<br>Please try accessing this resource again in a few minutes."]
+               }
+
 with open(css) as f: 
         style = f.read()
 r = requests.get('http://webconcepts.info/concepts/http-status-code.json')
@@ -23,8 +42,14 @@ for i in json["values"]:
         for c in i["value"]:
             span_error += "<span>" + c + "</span>"
         new_content = new_content.replace("$ERROR_SPAN", span_error)
-        new_content = new_content.replace("$ERROR_NAME", i["description"])
-        new_content = new_content.replace("$ERROR_DESC", i["details"][0]["description"])
+        if error_code in custom_text:
+            name = custom_text[error_code][0]
+            description = custom_text[error_code][1]
+        else :
+            name =  i["description"]
+            description = i["details"][0]["description"]	  
+        new_content = new_content.replace("$ERROR_NAME", name)
+        new_content = new_content.replace("$ERROR_DESC", description)
         with open(i["value"] + ".html", "w") as output_file:
             output_file.write(new_content)
 

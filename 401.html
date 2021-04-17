@@ -4,11 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Error 401 - Unauthorized</title>
+	<title>Error 401 - Authorization Required</title>
 	<style>
 		@import url(https://fonts.googleapis.com/css?family=Montserrat:900|Open+Sans);
 html{background-color:#fefefe}body{font-family:Open Sans,Arial;color:black;margin:2em auto;font-size:16px;max-width:800px;padding:1em;line-height:1.4;text-align:justify}@media screen and (max-width:500px){body{text-align:left}}
-
 html{
 	display: flex;
 	align-items: center;
@@ -37,7 +36,6 @@ h3 {
    font-size: 1.3rem;
    text-transform: uppercase;
 }
-
 @media only screen and (max-width:767px){
   h1 {
     font-size: 15rem;
@@ -70,12 +68,11 @@ h3 {
 		}
 	</style>
 </head>
-
 <body>
 <div class="error-middle">
-    <h3>Oops! Unauthorized</h3>
+    <h3>Oops! Authorization Required</h3>
 	<h1><span>4</span><span>0</span><span>1</span></h1>
-	<p>The 401 (Unauthorized) status code indicates that the request has not been applied because it lacks valid authentication credentials for the target resource. The server generating a 401 response MUST send a WWW-Authenticate header field (Section 4.1) containing at least one challenge applicable to the target resource.</p>
+	<p>Your access to this resource is denied<br>We could not verify that you are authorized to access this resource.</p>
 </div>
 </body>
 </html>

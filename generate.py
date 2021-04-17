@@ -1,7 +1,7 @@
 import requests
 import minify_html
 css = "_errors/main.css"
-
+disable_generic_description = True
 custom_text = {401: ["Authorization Required", "Your access to this resource is denied<br>We could not verify that you "
                                                "are authorized to access this resource."],
                403: ["Access Denied", "Sorry, but you don't have permission to access this resource."],
@@ -46,7 +46,7 @@ for i in json["values"]:
             description = custom_text[error_code][1]
         else:
             name = i["description"]
-            description = i["details"][0]["description"]
+            description = "" if disable_generic_description else i["details"][0]["description"]
         new_content = new_content.replace("$ERROR_NAME", name)
         new_content = new_content.replace("$ERROR_DESC", description)
         with open(i["value"] + ".html", "w") as output_file:

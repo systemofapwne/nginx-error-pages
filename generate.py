@@ -1,7 +1,6 @@
 import requests
 
 css = "_errors/main.css"
-style = ""
 
 custom_text = {401: ["Authorization Required", "Your access to this resource is denied<br>We could not verify that you "
                                                "are authorized to access this resource."],
@@ -21,8 +20,8 @@ custom_text = {401: ["Authorization Required", "Your access to this resource is 
                      "issue.<br>Please try accessing this resource again in a few minutes."]
                }
 
-with open(css) as f: 
-        style = f.read()
+with open(css) as f:
+    style = f.read()
 r = requests.get('http://webconcepts.info/concepts/http-status-code.json')
 json = r.json()
 
@@ -35,19 +34,19 @@ for i in json["values"]:
 
         if error_code == 418 or error_code < 400 or error_code > 599:
             continue
-        print("Error Code: %d" % (error_code))
-        new_content = new_content.replace("$MAIN_CSS", style)	
+        print("Error Code: %d" % error_code)
+        new_content = new_content.replace("$MAIN_CSS", style)
         new_content = new_content.replace("$ERROR_CODE", i["value"])
-        span_error = "";
+        span_error = ""
         for c in i["value"]:
             span_error += "<span>" + c + "</span>"
         new_content = new_content.replace("$ERROR_SPAN", span_error)
         if error_code in custom_text:
             name = custom_text[error_code][0]
             description = custom_text[error_code][1]
-        else :
-            name =  i["description"]
-            description = i["details"][0]["description"]	  
+        else:
+            name = i["description"]
+            description = i["details"][0]["description"]
         new_content = new_content.replace("$ERROR_NAME", name)
         new_content = new_content.replace("$ERROR_DESC", description)
         with open(i["value"] + ".html", "w") as output_file:
@@ -58,7 +57,7 @@ with open("snippets/error_pages_content.conf", "w") as epc:
         v = int(i["value"])
         if v < 400 or v > 599:
             continue
-        print("error_page %d /error/%d.html;" % (v,v), file=epc)
+        print("error_page %d /error/%d.html;" % (v, v), file=epc)
     print("error_page 495 http://$host;", file=epc)
     print("error_page 496 http://$host;", file=epc)
     print("error_page 497 https://$host$request_uri;", file=epc)

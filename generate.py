@@ -7,10 +7,10 @@ custom_text = {401: ["Authorization Required", "Your access to this resource is 
                403: ["Access Denied", "Sorry, but you don't have permission to access this resource."],
                404: ["Page Not Found", "Sorry, but the page you requested was not found."],
                500: ["Internal Server Error",
-                     "Sorry, our site is currentlyis experiencing technical difficulties.<br>Our engineers are "
+                     "Sorry, our site is currently experiencing technical difficulties.<br>Our engineers are "
                      "working to resolve this issue<br>Please try accessing this resource again in a few minutes."],
                502: ["Bad Gateway",
-                     "Sorry, our site is currentlyis experiencing technical difficulties.<br>Our engineers are "
+                     "Sorry, our site is currently experiencing technical difficulties.<br>Our engineers are "
                      "working to resolve this issue<br>Please try accessing this resource again in a few minutes."],
                503: ["Service Unavailable",
                      "Sorry, our site is temporarily unavailable.<br>The server is temporarily unable to service your "

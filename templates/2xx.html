@@ -7,15 +7,18 @@
 	<title>Status $ERROR_CODE - $ERROR_NAME</title>
 	<style>
 		$MAIN_CSS
-		h1 {
-			color: #1E88E5;
+		html{
+			background-color: #1E88E5;
+		}
+
+		body{
+			color: #fefefe;
 		}
 	</style>
 </head>
 <body>
 <div class="error-middle">
-    <h3>Status $ERROR_NAME</h3>
-	<h1>$ERROR_SPAN</h1>
+	<h1>Status $ERROR_CODE - $ERROR_NAME</h1>
 	<p>$ERROR_DESC</p>
 </div>
 </body>

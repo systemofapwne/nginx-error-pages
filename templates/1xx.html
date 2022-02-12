@@ -4,18 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Status $ERROR_CODE - $ERROR_NAME</title>
+    <title>Status $ERROR_CODE - $ERROR_NAME</title>
 	<style>
-		$MAIN_CSS
-		h1 {
-			color: #78909C;
+        $MAIN_CSS
+		html{
+			background-color: #78909C;
+		}
+
+		body{
+			color: #fefefe;
 		}
 	</style>
 </head>
 <body>
 <div class="error-middle">
-    <h3>Status $ERROR_NAME</h3>
-	<h1>$ERROR_SPAN</h1>
+	<h1>Status $ERROR_CODE - $ERROR_NAME</h1>
 	<p>$ERROR_DESC</p>
 </div>
 </body>

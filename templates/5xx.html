@@ -20,6 +20,17 @@
 <div class="error-middle">
     <h1>Error $ERROR_CODE - $ERROR_NAME</h1>
     <p>$ERROR_DESC</p>
+    <div>Refreshing page in <b id="countdown"></b> seconds</div>
 </div>
+<script>
+    function countdown(remaining) {
+        if(remaining === 0) location.reload(true);
+        if(remaining > 0){
+            document.getElementById('countdown').innerHTML = remaining;
+            setTimeout(() => { countdown(remaining - 1); }, 1000);
+        }
+    }
+    countdown(10);
+</script>
 </body>
 </html>

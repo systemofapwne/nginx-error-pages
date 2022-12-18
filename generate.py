@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import requests
 import minify_html
 css = "_errors/main.css"
